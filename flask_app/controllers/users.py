@@ -102,7 +102,7 @@ def dashboard():
     if session:
         print(session['logged_in']['id'])
         u = User.select_one(session['logged_in']['id'])
-        return render_template("dash.html", user=u,recipes=results)
+        return render_template("dash.html", user=u)
     else:
         return redirect("/")
 
