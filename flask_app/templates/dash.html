@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+    {%block header%} 
+        {%if session['logged_in']%}
+            Hello {{user['last_name']|capitalize}}, {{user['first_name']|capitalize}}!
+        {%else%}
+            Hey There..
+        {%endif%}
+    {%endblock%}
+    {%block main%}
+    {%if session['logged_in']%}
+        <div>
+            <table>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <tr>
+                    <td>
+                        {{user['first_name']|capitalize}}
+                    </td>
+                    <td>
+                        {{user['last_name']|capitalize}}
+                    </td>
+                    <td>
+                        {{user['email']}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {%else%}
+        <div>
+            Try logging in
+            <br>
+            <span class="emoji">
+                🧁
+            </span>
+        </div>
+        {%endif%}
+        {%endblock%}
